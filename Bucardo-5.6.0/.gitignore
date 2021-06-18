@@ -1,0 +1,53 @@
+## Build constructs:
+Makefile
+Makefile.old
+MANIFEST.bak
+*.gz
+blib/
+none/
+pm_to_blib
+MYMETA.*
+
+## Editor temporary files:
+*~
+*.swp
+*#
+.#*
+
+## Git stuff
+*.blame
+/*.patch
+*.diff
+*.orig
+*.rej
+
+## Testing artifacts:
+bucardo_test_database_*
+*.log
+log.bucardo
+bucardo.restart.reason.*
+fullstopbucardo
+test.*
+bucardo_pgservice.tmp.*
+pid/*
+bucardo.debug.dsns.txt
+
+## Temporary files:
+tmp/
+*.tmp
+*.asc
+*.tar
+pop
+scrap
+uno
+dos
+tres
+cuatro
+gitlog
+
+## Local things:
+notes.*
+.bucardorc
+opensourceshakespeare/
+hot/
+examples/
