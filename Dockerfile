@@ -31,6 +31,7 @@ ARG uid=3000
 # ensure you use the same uid
 RUN adduser -u ${uid} -G ${group} ${user} -s /bin/bash -D
 ENV BUCARDO_HOME  /home/${user}
+ENV PGPORT 5432
 WORKDIR  ${BUCARDO_HOME}
 
 RUN mkdir /var/run/bucardo && chown bucardo:postgres /var/run/bucardo; \
@@ -47,7 +48,7 @@ RUN set -eux; \
 # COPY etc/pg_hba.conf /etc/postgresql/9.5/main/
 COPY --chown=bucardo:postgres etc/bucardorc /etc/bucardorc
 COPY --chown=bucardo:postgres script/initialize.sh script/initialize.sh
-RUN chmod +x script/initialize.sh
+RUN chmod +x script/initialize.sh && sed -i 's/5432/'${PGPORT}'/' /etc/bucardorc
 
 # VOLUME "/media/bucardo"
 # CMD ["/bin/bash","-c","/entrypoint.sh"]
